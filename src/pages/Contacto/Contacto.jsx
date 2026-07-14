@@ -1,5 +1,9 @@
 function Contacto() {
-  return <></>;
+  return (
+    <>
+      <h1>Contacto</h1>
+    </>
+  );
 }
 
 export default Contacto;
