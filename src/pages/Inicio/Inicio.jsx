@@ -1,7 +1,10 @@
+import Catalogo from "../../components/Catalogo/Catalogo";
+
 function Inicio() {
   return (
     <>
-      <h1>Inicio</h1>
+      <h1>Catalogo de discos</h1>
+      <Catalogo />
     </>
   );
 }
