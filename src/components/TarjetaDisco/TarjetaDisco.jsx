@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import "./TarjetaDisco.css";
 
-function TarjetaDisco({ disco }) {
+const TarjetaDisco = ({ disco }) => {
   return (
     <Link to={`/disco/${disco.id}`} className="text-decoration-none">
-      <div className="card h-100">
+      <div className="card h-100 tarjeta">
         <img src={disco.portada} className="card-img-top" alt={disco.titulo} />
 
         <div className="card-body">
@@ -14,6 +15,6 @@ function TarjetaDisco({ disco }) {
       </div>
     </Link>
   );
-}
+};
 
 export default TarjetaDisco;
