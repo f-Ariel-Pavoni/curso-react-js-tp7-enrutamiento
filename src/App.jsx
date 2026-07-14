@@ -11,18 +11,20 @@ import Dashboard from "./pages/Dashboard/Dashboard";
 
 function App() {
   return (
-    <>
+    <div className="app-container">
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Inicio />} />
-        <Route path="/nosotros" element={<Nosotros />} />
-        <Route path="/contacto" element={<Contacto />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/disco/:id" element={<Disco />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      <main className="main-content">
+        <Routes>
+          <Route path="/" element={<Inicio />} />
+          <Route path="/nosotros" element={<Nosotros />} />
+          <Route path="/contacto" element={<Contacto />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/disco/:id" element={<Disco />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Routes>
+      </main>
       <Footer />
-    </>
+    </div>
   );
 }
 

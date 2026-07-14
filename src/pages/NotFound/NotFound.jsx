@@ -1,9 +1,16 @@
-function NotFound() {
+import { Link } from "react-router-dom";
+
+const NotFound = () => {
   return (
-    <>
-      <h1>Not Found</h1>
-    </>
+    <div className="container text-center py-5">
+      <h1>404</h1>
+      <p>Contenido no encontrado</p>
+
+      <Link to="/" className="btn btn-primary">
+        Volver al inicio
+      </Link>
+    </div>
   );
-}
+};
 
 export default NotFound;
