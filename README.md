@@ -1,16 +1,181 @@
-# React + Vite
+# TP Enrutamiento - MidnightGroove
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## Descripción
 
-Currently, two official plugins are available:
+**MidnightGroove** es una aplicación web desarrollada con React que simula un catálogo de discos de jazz en vinilo. En este proyecto ponen en práctica conceptos de React y React Router, incluyendo navegación entre páginas, rutas dinámicas, parámetros de búsqueda, rutas protegidas y organización modular del código.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+La aplicación permite navegar por el catálogo, consultar el detalle de cada disco, filtrar los resultados por género musical y acceder a un panel de administración mediante una autenticación simulada.
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tecnologías utilizadas
 
-## Expanding the Oxlint configuration
+- React
+- React Router DOM
+- Bootstrap 5
+- CSS3
+- JavaScript (ES6+)
+- Vite
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+---
+
+## Hooks utilizados
+
+- **useState**
+  - Manejo del estado de los formularios y componentes interactivos.
+
+- **useParams**
+  - Obtención del identificador del disco desde la URL para mostrar la información detallada de cada disco.
+
+- **useSearchParams**
+  - Administración del filtro por género mediante parámetros de consulta en la URL, permitiendo compartir enlaces y conservar el estado del filtro al recargar la página.
+
+  **useNavigate**  
+  Se utilizó el hook `useNavigate` para implementar la navegación programática. El botón **"Ingresar"** del componente **AccesoAdmin** redirige al usuario a la pantalla de **Login** sin necesidad de utilizar un enlace (`<Link>`).
+
+  **useLocation**
+  - Para conservar la ruta de origen al redirigir un usuario no autenticado al Login.
+
+---
+
+## Estructura del proyecto
+
+```text
+src/
+├── components/
+│   ├── AccesoAdmin/
+│   ├── Catalogo/
+│   ├── FiltroSelect/
+│   ├── Footer/
+│   ├── ModalEstado/
+│   ├── Navbar/
+│   ├── RutaProtegida/
+│   ├── TarjetaDisco/
+│   ├── Tracklist/
+│   └── ...
+│
+├── data/
+│   ├── discos.js
+│   └── usuarios.js
+│
+├── layouts/
+│   └── MainLayout.jsx
+│
+├── pages/
+│   ├── Contacto/
+│   ├── Dashboard/
+│   ├── Disco/
+│   ├── Inicio/
+│   ├── Login/
+│   ├── Nosotros/
+│   └── NotFound/
+│
+├── services/
+│   ├── discoService.js
+│   └── usuarioService.js
+│
+├── App.jsx
+└── main.jsx
+```
+
+---
+
+## Criterios de diseño y arquitectura
+
+### Arquitectura basada en componentes
+
+La aplicación fue desarrollada utilizando componentes reutilizables, buscando mantener una clara separación de responsabilidades y facilitar el mantenimiento del código.
+
+### Separación entre páginas y componentes
+
+Las vistas principales fueron organizadas dentro de la carpeta **pages**, mientras que los elementos reutilizables de la interfaz se ubicaron en **components**.
+
+### Layout compartido
+
+Se implementó un **MainLayout** que contiene el `Navbar`, el `Footer` y un `<Outlet />` de React Router. Esta estructura evita repetir código entre páginas y permite utilizar rutas anidadas para renderizar el contenido correspondiente a cada ruta.
+
+### Simulación de un backend
+
+Con el objetivo de desacoplar la lógica de negocio de la interfaz, se implementaron dos carpetas específicas:
+
+- **data/** contiene los datos simulados de la aplicación.
+  - `discos.js`: catálogo de discos.
+  - `usuarios.js`: usuarios utilizados durante la autenticación (una lista de 10 usuarios y contraseñas)
+
+- **services/** centraliza el acceso a dichos datos mediante funciones reutilizables como:
+  - `getDiscoById()`
+  - `getGeneros()`
+  - `authenticate()`
+
+La idea de esta organización es poder reemplazar mas fácilmente los datos locales por una API REST en futuras versiones de la aplicación.
+
+### Generación dinámica del filtro
+
+Las opciones del filtro por género no fueron escritas manualmente. Se generan dinámicamente a partir del catálogo mediante la función `getGeneros()`, evitando duplicar información y manteniendo sincronizada la interfaz con los datos disponibles.
+
+### Navegación
+
+La aplicación implementa distintas funcionalidades de React Router:
+
+- Rutas públicas.
+- Rutas dinámicas mediante `useParams`.
+- Parámetros de búsqueda con `useSearchParams`.
+- Rutas protegidas mediante autenticación simulada. El acceso al **Dashboard** se encuentra protegido. Si un usuario intenta acceder sin haberse autenticado, es redirigido automáticamente a la pantalla de **Login** (en vez de mostrar un mensaje), conservando la ruta de origen mediante `useLocation`. Una vez que la autenticación es exitosa, la información del usuario se almacena en `localStorage`, permitiendo mantener la sesión iniciada y acceder posteriormente al Dashboard desde el menú de navegación.
+- Ruta para páginas inexistentes (404). Cuando se accede a un id de disoco inexiste se muestra un not found.
+- Layout compartido utilizando rutas anidadas y `<Outlet />`.
+
+### Diseño de la interfaz
+
+Bootstrap fue utilizado como base para construir una interfaz responsive, complementándose con estilos CSS personalizados para lograr una identidad visual inspirada en un catálogo de jazz, priorizando la simplicidad, la legibilidad y la accesibilidad.
+
+---
+
+## Cómo ejecutar el proyecto
+
+Clonar el repositorio:
+
+```bash
+git clone https://github.com/f-Ariel-Pavoni/curso-react-js-tp7-enrutamiento
+```
+
+Ingresar al directorio del proyecto:
+
+```bash
+cd REPOSITORIO
+```
+
+Instalar las dependencias:
+
+```bash
+npm install
+```
+
+Ejecutar el servidor de desarrollo:
+
+```bash
+npm run dev
+```
+
+La aplicación estará disponible en:
+
+```text
+http://localhost:5173
+```
+
+---
+
+## Capturas de pantalla
+
+- Página de inicio.
+- Catálogo con filtro por género.
+- Detalle de un disco.
+- Pantalla de login.
+- Dashboard protegido.
+
+---
+
+## Autor
+
+**Ariel Pavoni**
+
+Proyecto desarrollado como trabajo práctico para la **Diplomatura Full Stack - UTN Learning**.
