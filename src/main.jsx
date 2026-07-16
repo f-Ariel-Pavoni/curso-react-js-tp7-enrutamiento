@@ -9,7 +9,7 @@ import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/curso-react-js-tp7-enrutamiento">
       <App />
     </BrowserRouter>
   </StrictMode>,
