@@ -1,3 +1,10 @@
+import charlieParker from "../assets/img/Charlie_Parker_Birds_and_Diz_768x769.jpg";
+import daveBrubeck from "../assets/img/Dave-Brubeck-768x774.jpg";
+import johnColtrane from "../assets/img/John-Coltrane-1957-Blue-Train_oo1-768x768.jpg";
+import kennyBurrell from "../assets/img/KennyBurrell_MidnightBlue-768x768.jpg";
+import evansHall from "../assets/img/Evans_Hall_Undercurrent-768x768.jpg";
+import herbieHancock from "../assets/img/Herbie-Hancock-Head-Hunters-768x768.jpg";
+
 const discos = [
   {
     id: 1,
@@ -7,7 +14,7 @@ const discos = [
     genero: "Bebop",
     sello: "Verve Records",
     precio: 25.0,
-    portada: "/img/Charlie_Parker_Birds_and_Diz_768x769.jpg",
+    portada: charlieParker,
     descripcion:
       "Un clásico del bebop que reúne a Charlie Parker y Dizzy Gillespie en una de las sesiones más representativas del género.",
     tracklist: [
@@ -30,7 +37,7 @@ const discos = [
     genero: "Cool Jazz",
     sello: "Columbia Records",
     precio: 55.0,
-    portada: "/img/Dave-Brubeck-768x774.jpg",
+    portada: daveBrubeck,
     descripcion:
       "Uno de los discos de jazz más influyentes de todos los tiempos, famoso por incluir el éxito 'Take Five'.",
     tracklist: [
@@ -52,7 +59,7 @@ const discos = [
     genero: "Hard Bop",
     sello: "Blue Note",
     precio: 70.7,
-    portada: "/img/John-Coltrane-1957-Blue-Train_oo1-768x768.jpg",
+    portada: johnColtrane,
     descripcion:
       "El único álbum de John Coltrane como líder para Blue Note y una referencia imprescindible del hard bop.",
     tracklist: [
@@ -72,7 +79,7 @@ const discos = [
     genero: "Blues Jazz",
     sello: "Blue Note",
     precio: 60.6,
-    portada: "/img/KennyBurrell_MidnightBlue-768x768.jpg",
+    portada: kennyBurrell,
     descripcion:
       "Una combinación perfecta de jazz y blues, considerada una de las mejores grabaciones de Kenny Burrell.",
     tracklist: [
@@ -94,7 +101,7 @@ const discos = [
     genero: "Cool Jazz",
     sello: "United Artists",
     precio: 77.1,
-    portada: "/img/Evans_Hall_Undercurrent-768x768.jpg",
+    portada: evansHall,
     descripcion:
       "Una de las colaboraciones más célebres entre Bill Evans y el guitarrista Jim Hall, caracterizada por su delicadeza e improvisación.",
     tracklist: [
@@ -115,7 +122,7 @@ const discos = [
     genero: "Jazz Fusion",
     sello: "Columbia Records",
     precio: 505.55,
-    portada: "/img/Herbie-Hancock-Head-Hunters-768x768.jpg",
+    portada: herbieHancock,
     descripcion:
       "Uno de los discos más vendidos de la historia del jazz, donde Herbie Hancock fusiona jazz, funk y música electrónica.",
     tracklist: [
