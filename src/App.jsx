@@ -8,6 +8,7 @@ import Contacto from "./pages/Contacto/Contacto";
 import Disco from "./pages/Disco/Disco";
 import Login from "./pages/Login/Login";
 import Dashboard from "./pages/Dashboard/Dashboard";
+import RutaProtegida from "./components/RutaProtegida/RutaProtegida";
 
 function App() {
   return (
@@ -20,7 +21,14 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/login" element={<Login />} />
           <Route path="/disco/:id" element={<Disco />} />
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route
+            path="/dashboard"
+            element={
+              <RutaProtegida>
+                <Dashboard />
+              </RutaProtegida>
+            }
+          />
         </Routes>
       </main>
       <Footer />
