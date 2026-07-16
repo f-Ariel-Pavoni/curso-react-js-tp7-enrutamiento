@@ -14,4 +14,5 @@
 
 .nav-link:hover {
   color: #adb5bd;
+  transform: translateY(-1px);
 }
