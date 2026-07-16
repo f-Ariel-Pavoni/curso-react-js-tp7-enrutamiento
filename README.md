@@ -7,6 +7,13 @@
 La aplicación permite navegar por el catálogo, consultar el detalle de cada disco, filtrar los resultados por género musical y acceder a un panel de administración mediante una autenticación simulada.
 
 ---
+##  Demo
+
+Podés ver la aplicación funcionando en GitHub Pages:
+
+https://f-ariel-pavoni.github.io/curso-react-js-tp7-enrutamiento/
+
+---
 
 ## Tecnologías utilizadas
 
