@@ -118,7 +118,7 @@ Los datos del catálogo se toman de un archivo JSON ubicado en la carpeta públi
   - `getDiscoById()`
   - `getGeneros()`
   - `authenticate()`
-  - 
+
 Para el caso de la autenticacion:
   - `usuarios.js` que contiene los usuarios utilizados para validar el acceso.
   - `usuarioService.js` que centraliza la lógica de autenticación mediante la función authenticate().
@@ -136,7 +136,7 @@ La aplicación implementa distintas funcionalidades de React Router:
 - Rutas públicas.
 - Rutas dinámicas mediante `useParams`.
 - Parámetros de búsqueda con `useSearchParams`.
-- Rutas protegidas mediante autenticación simulada. El acceso al **Dashboard** se encuentra protegido. Si un usuario intenta acceder sin haberse autenticado, es redirigido automáticamente a la pantalla de **Login** (en vez de mostrar un mensaje), conservando la ruta de origen mediante `useLocation`. Una vez que la autenticación es exitosa, la información del usuario se almacena en `localStorage`, permitiendo mantener la sesión iniciada y acceder posteriormente al Dashboard desde el menú de navegación.
+- Rutas protegidas mediante autenticación simulada. El acceso al **Dashboard** se encuentra protegido. Si un usuario intenta acceder sin haberse autenticado, es redirigido automáticamente a la pantalla de **Login** y se muestra un modal con el mensaje, conservando la ruta de origen mediante `useLocation`. Una vez que la autenticación es exitosa, la información del usuario se almacena en `localStorage`, permitiendo mantener la sesión iniciada y acceder posteriormente al Dashboard desde el menú de navegación.
 - Ruta para páginas inexistentes (404). Cuando se accede a un id de disoco inexiste se muestra un not found.
 - Layout compartido utilizando rutas anidadas y `<Outlet />`.
 
