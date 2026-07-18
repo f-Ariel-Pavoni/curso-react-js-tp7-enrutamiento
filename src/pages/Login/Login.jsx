@@ -8,6 +8,10 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
+  const [mostrarNotLogged, setMostrarNotLogged] = useState(
+    Boolean(location.state?.mensaje),
+  );
+
   const destino = location.state?.from?.pathname || "/dashboard";
 
   const manejarLogin = (usuario) => {
@@ -21,6 +25,13 @@ const Login = () => {
     <>
       <h1>Login</h1>
       <FormularioLogin onLogin={manejarLogin} />
+      {mostrarNotLogged && (
+        <ModalEstado
+          tipo="Acceso no valido"
+          mensaje={location.state.mensaje}
+          onClose={() => setMostrarNotLogged(false)}
+        />
+      )}
       {mostrarModal && (
         <ModalEstado
           tipo="error"

@@ -1,4 +1,5 @@
 import { useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import Tracklist from "../../components/Tracklist/Tracklist";
 import NotFound from "../NotFound/NotFound";
 
@@ -6,9 +7,29 @@ import { getDiscoById } from "../../services/discoService";
 
 const Disco = () => {
   const { id } = useParams();
-  const disco = getDiscoById(id);
+  const [disco, setDisco] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-  if (!disco) {
+  const cargarDisco = async () => {
+    try {
+      const data = await getDiscoById(id);
+      setDisco(data);
+      setLoading(false);
+    } catch (error) {
+      setError("Disco no existe");
+    }
+  };
+
+  useEffect(() => {
+    cargarDisco();
+  }, []);
+
+  if (loading) {
+    return <p>Cargando...</p>;
+  }
+  if (!disco || error) {
+    console.log("disco no encontrado");
     return <NotFound />;
   }
 
@@ -18,7 +39,7 @@ const Disco = () => {
         {/* Portada */}
         <div className="col-md-4">
           <img
-            src={disco.portada}
+            src={`${import.meta.env.BASE_URL}${disco.portada}`}
             alt={disco.titulo}
             className="img-fluid rounded shadow"
           />

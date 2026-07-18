@@ -1,13 +1,33 @@
 import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import FiltroSelect from "../FiltroSelect/FiltroSelect";
 import TarjetaDisco from "../TarjetaDisco/TarjetaDisco";
-import discos from "../../data/discos";
-import { getGeneros } from "../../services/discoService";
+import { getDiscos } from "../../services/discoService";
 
 const Catalogo = () => {
   const [searchParams, setSearchParams] = useSearchParams();
+  const [loading, setLoading] = useState(true);
+  const [generos, setGeneros] = useState([]);
+  const [discos, setDiscos] = useState([]);
+  const [error, setError] = useState(null);
+
+  const cargarDiscos = async () => {
+    try {
+      const data = await getDiscos();
+      setDiscos(data);
+      setGeneros([...new Set(data.map((disco) => disco.genero))]);
+    } catch (error) {
+      setError(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    cargarDiscos();
+  }, []);
+
   const genero = searchParams.get("genero") || "";
-  const generos = getGeneros();
 
   const discosFiltrados = genero
     ? discos.filter((disco) => disco.genero === genero)
@@ -23,6 +43,13 @@ const Catalogo = () => {
     }
   };
 
+  if (loading) {
+    return <p>Cargando discos...</p>;
+  }
+  if (error) {
+    return <p>No se pudieron cargar discos.</p>;
+  }
+
   return (
     <>
       <FiltroSelect
@@ -33,6 +60,7 @@ const Catalogo = () => {
         onChange={handleGeneroChange}
         label="Filtrar por género"
       />
+
       <div className="row g-4">
         {discosFiltrados.length === 0 ? (
           <p>No hay discos disponibles para mostrar.</p>
