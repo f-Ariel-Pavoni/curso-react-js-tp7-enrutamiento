@@ -118,7 +118,8 @@ Los datos del catálogo se toman de un archivo JSON ubicado en la carpeta públi
   - `getDiscoById()`
   - `getGeneros()`
   - `authenticate()`
-y para el caso de la autenticacion:
+  - 
+Para el caso de la autenticacion:
   - `usuarios.js` que contiene los usuarios utilizados para validar el acceso.
   - `usuarioService.js` que centraliza la lógica de autenticación mediante la función authenticate().
 
