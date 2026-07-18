@@ -175,7 +175,7 @@ npm run dev
 La aplicación estará disponible en:
 
 ```text
-http://localhost:5173
+http://localhost:5173/curso-react-js-tp7-enrutamiento
 ```
 
 ---
