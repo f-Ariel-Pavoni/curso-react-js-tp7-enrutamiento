@@ -109,16 +109,18 @@ Se implementó un **MainLayout** que contiene el `Navbar`, el `Footer` y un `<Ou
 
 ### Simulación de un backend
 
-Con el objetivo de desacoplar la lógica de negocio de la interfaz, se implementaron dos carpetas específicas:
+Con el objetivo de desacoplar la lógica de acceso a datos de la interfaz, se implementó una estructura de servicios que simula el comportamiento de una API REST.
 
-- **data/** contiene los datos simulados de la aplicación.
-  - `discos.js`: catálogo de discos.
-  - `usuarios.js`: usuarios utilizados durante la autenticación (una lista de 10 usuarios y contraseñas)
+Los datos del catálogo se toman de un archivo JSON ubicado en la carpeta pública del proyecto:
+  - `public/data/discos.json`
 
 - **services/** centraliza el acceso a dichos datos mediante funciones reutilizables como:
   - `getDiscoById()`
   - `getGeneros()`
   - `authenticate()`
+y para el caso de la autenticacion:
+  - `usuarios.js` que contiene los usuarios utilizados para validar el acceso.
+  - `usuarioService.js` que centraliza la lógica de autenticación mediante la función authenticate().
 
 La idea de esta organización es poder reemplazar mas fácilmente los datos locales por una API REST en futuras versiones de la aplicación.
 
