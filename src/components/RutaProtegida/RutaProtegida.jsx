@@ -5,7 +5,16 @@ const RutaProtegida = ({ children }) => {
   const location = useLocation();
 
   if (!usuario) {
-    return <Navigate to="/login" state={{ from: location }} replace />;
+    return (
+      <Navigate
+        to="/login"
+        state={{
+          from: location,
+          mensaje: "Debes iniciar sesión para acceder al dashboard",
+        }}
+        replace
+      />
+    );
   }
 
   return children;
