@@ -40,10 +40,10 @@ https://f-ariel-pavoni.github.io/curso-react-js-tp7-enrutamiento/
 - **useSearchParams**
   - Administración del filtro por género mediante parámetros de consulta en la URL, permitiendo compartir enlaces y conservar el estado del filtro al recargar la página.
 
- - **useNavigate**  
-  Se utilizó el hook `useNavigate` para implementar la navegación programática. El botón **"Ingresar"** del componente **AccesoAdmin** redirige al usuario a la pantalla de **Login** sin necesidad de utilizar un enlace (`<Link>`).
+- **useNavigate**  
+  - Se utilizó el hook `useNavigate` para implementar la navegación programática. El botón **"Ingresar"** del componente **AccesoAdmin** redirige al usuario a la pantalla de **Login** sin necesidad de utilizar un enlace (`<Link>`).
 
- - **useLocation**
+- **useLocation**
   - Para conservar la ruta de origen al redirigir un usuario no autenticado al Login.
 
 ---
