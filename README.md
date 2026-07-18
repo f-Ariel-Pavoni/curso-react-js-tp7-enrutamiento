@@ -34,6 +34,9 @@ https://f-ariel-pavoni.github.io/curso-react-js-tp7-enrutamiento/
 - **useParams**
   - Obtención del identificador del disco desde la URL para mostrar la información detallada de cada disco.
 
+- **useEffect**
+  - Utilizado para ejecutar cargas asíncronas de datos al montar componentes, como la obtención del catálogo y el detalle de cada disco mediante servicios.
+
 - **useSearchParams**
   - Administración del filtro por género mediante parámetros de consulta en la URL, permitiendo compartir enlaces y conservar el estado del filtro al recargar la página.
 
@@ -48,6 +51,11 @@ https://f-ariel-pavoni.github.io/curso-react-js-tp7-enrutamiento/
 ## Estructura del proyecto
 
 ```text
+public/
+├── data/
+│   └── discos.json
+└── img/
+    └── ...
 src/
 ├── components/
 │   ├── AccesoAdmin/
@@ -62,7 +70,6 @@ src/
 │   └── ...
 │
 ├── data/
-│   ├── discos.js
 │   └── usuarios.js
 │
 ├── layouts/
@@ -84,7 +91,6 @@ src/
 ├── App.jsx
 └── main.jsx
 ```
-
 ---
 
 ## Criterios de diseño y arquitectura
