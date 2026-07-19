@@ -7,7 +7,8 @@
 La aplicación permite navegar por el catálogo, consultar el detalle de cada disco, filtrar los resultados por género musical y acceder a un panel de administración mediante una autenticación simulada.
 
 ---
-##  Demo
+
+## Demo
 
 Podés ver la aplicación funcionando en GitHub Pages:
 
@@ -40,7 +41,7 @@ https://f-ariel-pavoni.github.io/curso-react-js-tp7-enrutamiento/
 - **useSearchParams**
   - Administración del filtro por género mediante parámetros de consulta en la URL, permitiendo compartir enlaces y conservar el estado del filtro al recargar la página.
 
-- **useNavigate**  
+- **useNavigate**
   - Se utilizó el hook `useNavigate` para implementar la navegación programática. El botón **"Ingresar"** del componente **AccesoAdmin** redirige al usuario a la pantalla de **Login** sin necesidad de utilizar un enlace (`<Link>`).
 
 - **useLocation**
@@ -91,6 +92,7 @@ src/
 ├── App.jsx
 └── main.jsx
 ```
+
 ---
 
 ## Criterios de diseño y arquitectura
@@ -112,7 +114,8 @@ Se implementó un **MainLayout** que contiene el `Navbar`, el `Footer` y un `<Ou
 Con el objetivo de desacoplar la lógica de acceso a datos de la interfaz, se implementó una estructura de servicios que simula el comportamiento de una API REST.
 
 Los datos del catálogo se toman de un archivo JSON ubicado en la carpeta pública del proyecto:
-  - `public/data/discos.json`
+
+- `public/data/discos.json`
 
 - **services/** centraliza el acceso a dichos datos mediante funciones reutilizables como:
   - `getDiscoById()`
@@ -120,8 +123,9 @@ Los datos del catálogo se toman de un archivo JSON ubicado en la carpeta públi
   - `authenticate()`
 
 Para el caso de la autenticacion:
-  - `usuarios.js` que contiene los usuarios utilizados para validar el acceso.
-  - `usuarioService.js` que centraliza la lógica de autenticación mediante la función authenticate().
+
+- `usuarios.js` que contiene los usuarios utilizados para validar el acceso.
+- `usuarioService.js` que centraliza la lógica de autenticación mediante la función authenticate().
 
 La idea de esta organización es poder reemplazar mas fácilmente los datos locales por una API REST en futuras versiones de la aplicación.
 
@@ -182,11 +186,25 @@ http://localhost:5173/curso-react-js-tp7-enrutamiento
 
 ## Capturas de pantalla
 
-- Página de inicio.
-- Catálogo con filtro por género.
-- Detalle de un disco.
-- Pantalla de login.
-- Dashboard protegido.
+### Página de inicio
+
+![Página de inicio](./src/assets/img/pagina_inicio.png)
+
+### Detalle de un disco
+
+![Detalle de un disco](./src/assets/img/pagina_disco.png)
+
+### Pantalla de login
+
+![Pantalla de login](./src/assets/img/pagina_login.png)
+
+### Dashboard protegido
+
+![Dashboard protegido](./src/assets/img/pagina_protegida.png)
+
+### Dashboard accesible
+
+![Dashboard accesible](./src/assets/img/pagina_protegida_autenticado.png)
 
 ---
 
